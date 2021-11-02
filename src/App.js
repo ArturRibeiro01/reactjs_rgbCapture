@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ColorBox from "./components/ColorBox";
+import ColorBox from "./components/ColorBox/ColorBox";
 
 export default function App() {
   const [red, setRed] = useState(0);
@@ -44,7 +44,10 @@ export default function App() {
       </div>
       <ColorBox backgroundColor={`rgb(${red},${blue},${green})`} />
 
-      <button onClick={() => setHistory([`${red},${blue},${green}`])}>Salvar cor selecionada</button>
+      <button 
+        onClick={() => setHistory((h) => [red , blue, green, ...h ])}
+        >Salvar cor selecionada
+      </button>
 
       <p>{history}</p>
     </>
